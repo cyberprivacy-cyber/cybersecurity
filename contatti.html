@@ -11,15 +11,45 @@
             font-family: 'Courier New', monospace;
             background-color: black;
             color: #00FF00;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            text-align: center;
         }
 
         h1 {
             font-size: 36px;
-            color: #0F0;
-            text
+            color: #00FF00;
+            text-shadow: 0px 0px 10px #00FF00;
+        }
+
+        p {
+            font-size: 18px;
+            color: #00FF00;
+            margin-top: 20px;
+        }
+
+        .button {
+            background-color: #006400;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #228B22;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contatti</h1>
+    <p>Email: contatto@cybersecurity.com</p>
+    <p>Telefono: +39 123 456 7890</p>
+
+    <button class="button" onclick="window.location.href='index.html';">Torna alla Home</button>
+</body>
+</html>
