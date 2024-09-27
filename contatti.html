@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contatti - Cybersecurity</title>
-    <link rel="icon" href="logo_sito.png" type="image/png">
     <style>
         body {
             margin: 0;
@@ -14,7 +13,8 @@
             color: #00FF00; /* Colore testo verde Matrix */
             display: flex;
             flex-direction: column;
-            align-items: center;
+            justify-content: center; /* Centra verticalmente */
+            align-items: center; /* Centra orizzontalmente */
             text-align: center;
             height: 100vh;
             position: relative;
@@ -26,15 +26,15 @@
             text-shadow: 0px 0px 10px #00FF00; /* Effetto di bagliore */
             position: relative; /* Necessario per posizionare il testo sopra il canvas */
             z-index: 1; /* Assicura che il testo sia sopra al canvas */
-            margin-top: 70px; /* Spazio sopra il testo per il menu fisso */
         }
 
         #matrixCanvas {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background-color: black;
             z-index: 0; /* Lo sfondo deve essere dietro al contenuto */
         }
 
@@ -46,7 +46,7 @@
             cursor: pointer;
             font-size: 16px;
             margin-top: 20px;
-            z-index: 1; /* Assicura che il pulsante sia sopra al canvas */
+            z-index: 1; /* Pulsante sopra al canvas */
         }
 
         .button:hover {
@@ -57,10 +57,8 @@
 <body>
     <canvas id="matrixCanvas"></canvas>
     <h1>Contatti</h1>
-    <p>Per qualsiasi informazione, non esitate a contattarci!</p>
     <p>Email: <a href="mailto:infocyberprivacy@proton.me" style="color: #00FF00;">infocyberprivacy@proton.me</a></p>
-
-    <button class="button" onclick="location.href='index.html'">Torna alla Home</button>
+    <button class="button" onclick="window.location.href='index.html'">Torna alla Home</button>
 
     <script>
         const canvas = document.getElementById('matrixCanvas');
