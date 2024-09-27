@@ -3,71 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatti</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
-        header {
-            background-color: #007acc;
-            color: white;
-            padding: 20px;
-        }
-        footer {
-            margin-top: 50px;
-            font-size: 0.8em;
-            color: #666;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Contatti</h1>
-    </header>
-       <main>
-        <h2>Contattaci</h2>
-        <p>Per qualsiasi domanda, puoi contattarci via email all'indirizzo:</p>
-        <p><a href="mailto:infocyberprivacy@proton.me">infocyberprivacy@proton.me</a></p>
-        <p>Seguici anche sui social media:</p>
-        <p>
-            <a href="https://twitter.com" target="_blank">Twitter</a> |
-            <a href="https://facebook.com" target="_blank">Facebook</a> |
-            <a href="https://instagram.com" target="_blank">Instagram</a>
-        </p>
-    </main>
-    <footer>
-        <p>&copy; 2024 Cybersecurity. Tutti i diritti riservati.</p>
-    </footer>
-</body>
-  <button onclick="window.location.href='index.html'" style="margin: 20px; padding: 10px 20px; font-size: 16px;">
-    Torna alla Home
-</button>
-   </html>
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Cybersecurity</title>
+    <title>Contatti - Cybersecurity</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Courier New', monospace;
             background-color: black;
-            color: #00ff00; /* Colore testo verde */
+            color: #00FF00;
             overflow: hidden;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
         }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        nav a {
+            color: #00FF00;
+            font-size: 18px;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        nav a:hover {
+            color: #66ff66;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #0F0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0px 0px 10px #00FF00;
+        }
+
         #matrixCanvas {
             position: fixed;
             top: 0;
@@ -75,59 +50,23 @@
             width: 100%;
             height: 100%;
             background-color: black;
-            z-index: -1; /* Metti lo sfondo dietro il contenuto */
+            z-index: -1;
         }
-        h1 {
-            z-index: 1; /* Assicurati che il titolo sia sopra l'effetto */
+
+        .button {
+            background-color: #006400;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #228B22;
         }
     </style>
 </head>
 <body>
-    <canvas id="matrixCanvas"></canvas>
-    <h1>Benvenuti nel mio sito sulla Cybersecurity</h1>
-
-    <!-- Inserisci il codice JavaScript qui, alla fine del body -->
-    <script>
-        const canvas = document.getElementById('matrixCanvas');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
-
-        const drops = Array.from({ length: columns }, () => 1);
-
-        function drawMatrix() {
-            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = "#0F0"; // Colore verde per le lettere
-            ctx.font = fontSize + "px monospace";
-
-            drops.forEach((y, i) => {
-                const text = letters[Math.floor(Math.random() * letters.length)];
-                const x = i * fontSize;
-
-                ctx.fillText(text, x, y * fontSize);
-
-                if (y * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-
-                drops[i]++;
-            });
-        }
-
-        setInterval(drawMatrix, 50);
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-    </script>
-</body>
-</html>
-
+    <canvas id="matrix
