@@ -22,7 +22,12 @@
         }
 
         nav {
-            margin-top: 20px;
+            position: fixed; /* Mantiene il menu fisso */
+            top: 0; /* Posiziona il menu in alto */
+            width: 100%; /* Occupa tutta la larghezza */
+            background-color: black; /* Sfondo del menu */
+            z-index: 1; /* Assicura che il menu sia sopra al canvas */
+            padding: 10px 0; /* Spaziatura verticale del menu */
         }
 
         nav a {
@@ -37,6 +42,7 @@
             text-shadow: 0px 0px 10px #00FF00; /* Effetto di bagliore */
             position: relative; /* Necessario per posizionare il testo sopra il canvas */
             z-index: 1; /* Assicura che il testo sia sopra al canvas */
+            margin-top: 70px; /* Spazio sopra il testo per il menu fisso */
         }
 
         #matrixCanvas {
@@ -46,6 +52,21 @@
             width: 100%;
             height: 100%;
             z-index: 0; /* Lo sfondo deve essere dietro al contenuto */
+        }
+
+        .button {
+            background-color: #006400; /* Verde scuro per i pulsanti */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            z-index: 1; /* Assicura che il pulsante sia sopra al canvas */
+        }
+
+        .button:hover {
+            background-color: #228B22; /* Colore verde chiaro al passaggio del mouse */
         }
     </style>
 </head>
@@ -66,11 +87,13 @@
     </p>
 
     <nav>
-        <a href="index.html">Home</a> <!-- Pulsante Home ripristinato -->
+        <a href="index.html">Home</a>
         <a href="guide.html">Guide</a>
         <a href="strumenti.html">Strumenti</a>
         <a href="contatti.html">Contatti</a>
     </nav>
+
+    <button class="button" onclick="location.href='index.html'">Torna alla Home</button>
 
     <script>
         const canvas = document.getElementById('matrixCanvas');
