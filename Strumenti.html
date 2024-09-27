@@ -22,13 +22,16 @@
 
         nav {
             margin-top: 20px;
+            display: flex;
+            flex-direction: column; /* Posiziona i link in verticale */
+            align-items: center;
         }
 
         nav a {
             color: #00FF00;
             font-size: 18px;
             text-decoration: none;
-            margin: 10px;
+            margin: 10px 0; /* Spazio tra i link */
         }
 
         nav a:hover {
@@ -66,60 +69,4 @@
         .button:hover {
             background-color: #228B22;
         }
-    </style>
-</head>
-<body>
-    <canvas id="matrixCanvas"></canvas>
-    <h1>Strumenti utili</h1>
-
-    <button class="button" onclick="window.location.href='index.html';">Torna alla Home</button>
-
-    <nav>
-        <a href="#strumento1">Strumento 1</a>
-        <a href="#strumento2">Strumento 2</a>
-        <a href="#strumento3">Strumento 3</a>
-    </nav>
-
-    <script>
-        const canvas = document.getElementById('matrixCanvas');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
-
-        const drops = Array.from({ length: columns }, () => 1);
-
-        function drawMatrix() {
-            ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = "#0F0";
-            ctx.font = fontSize + "px monospace";
-
-            drops.forEach((y, i) => {
-                const text = letters[Math.floor(Math.random() * letters.length)];
-                const x = i * fontSize;
-
-                ctx.fillText(text, x, y * fontSize);
-
-                if (y * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-
-                drops[i]++;
-            });
-        }
-
-        setInterval(drawMatrix, 50);
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-    </script>
-</body>
-</html>
+    </
