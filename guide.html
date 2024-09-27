@@ -22,13 +22,16 @@
 
         nav {
             margin-top: 20px;
+            display: flex;
+            flex-direction: column; /* Posiziona i link in verticale */
+            align-items: center;
         }
 
         nav a {
             color: #00FF00;
             font-size: 18px;
             text-decoration: none;
-            margin: 10px;
+            margin: 10px 0; /* Spazio tra i link */
         }
 
         nav a:hover {
@@ -75,9 +78,9 @@
     <button class="button" onclick="window.location.href='index.html';">Torna alla Home</button>
 
     <nav>
-        <a href="#guida1">Guida 1</a>
-        <a href="#guida2">Guida 2</a>
-        <a href="#guida3">Guida 3</a>
+        <a href="#guida1">Introduzione alla sicurezza informatica</a>
+        <a href="#guida2">Come proteggere la tua privacy online</a>
+        <a href="#guida3">Strumenti essenziali per la cybersecurity</a>
     </nav>
 
     <script>
