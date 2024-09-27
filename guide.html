@@ -52,3 +52,86 @@
 </button>
 
 </html>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Cybersecurity</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: #00ff00; /* Colore testo verde */
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        #matrixCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: -1; /* Metti lo sfondo dietro il contenuto */
+        }
+        h1 {
+            z-index: 1; /* Assicurati che il titolo sia sopra l'effetto */
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrixCanvas"></canvas>
+    <h1>Benvenuti nel mio sito sulla Cybersecurity</h1>
+
+    <!-- Inserisci il codice JavaScript qui, alla fine del body -->
+    <script>
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+
+        const drops = Array.from({ length: columns }, () => 1);
+
+        function drawMatrix() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#0F0"; // Colore verde per le lettere
+            ctx.font = fontSize + "px monospace";
+
+            drops.forEach((y, i) => {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                const x = i * fontSize;
+
+                ctx.fillText(text, x, y * fontSize);
+
+                if (y * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+            });
+        }
+
+        setInterval(drawMatrix, 50);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
+
