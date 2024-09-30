@@ -34,7 +34,11 @@
             cursor: pointer;
             font-size: 16px;
             margin-top: 20px;
-            text-align: center;
+            position: fixed; /* Cambiato a fixed per rimanere sempre visibile */
+            bottom: 20px;    /* Spazio dal basso */
+            left: 50%;       /* Centrato orizzontalmente */
+            transform: translateX(-50%); /* Centro esatto */
+            z-index: 2;     /* Assicura che sia sopra al canvas */
         }
 
         .button:hover {
