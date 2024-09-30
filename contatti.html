@@ -22,8 +22,8 @@
 
         .contact-info {
             text-align: center;
-            position: relative; /* Posizionamento del testo */
-            z-index: 1; /* Assicura che il testo sia sopra il canvas */
+            position: relative;
+            z-index: 1;
         }
 
         .button {
@@ -48,7 +48,7 @@
             width: 100%;
             height: 100%;
             background-color: black;
-            z-index: 0; /* Il canvas deve essere dietro al contenuto */
+            z-index: 0;
         }
 
         a {
@@ -64,6 +64,8 @@
 <body>
     <canvas id="matrixCanvas"></canvas>
     <div class="contact-info">
+        <h2>Contattaci</h2>
+        <p>Se hai domande o suggerimenti, non esitare a scriverci!</p>
         <p>Email: <a href="mailto:infocyberprivacy@proton.me">infocyberprivacy@proton.me</a></p>
     </div>
 
@@ -83,11 +85,11 @@
         const drops = Array.from({ length: columns }, () => 1);
 
         function drawMatrix() {
-            ctx.fillStyle = "rgba(0, 0, 0, 0.1)"; // Sfondo con opacità
+            ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = "#0F0"; // Verde per le lettere a cascata
-            ctx.font = fontSize + "px monospace"; // Font monospace
+            ctx.fillStyle = "#0F0";
+            ctx.font = fontSize + "px monospace";
 
             drops.forEach((y, i) => {
                 const text = letters[Math.floor(Math.random() * letters.length)];
