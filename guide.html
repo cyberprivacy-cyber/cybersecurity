@@ -3,111 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guide - Cybersecurity</title>
+    <title>Guide alla Cybersecurity</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Courier New', monospace; /* Font tipo Matrix */
+            font-family: 'Courier New', monospace;
             background-color: black;
-            color: #00FF00; /* Colore testo verde Matrix */
+            color: #00FF00;
+            overflow-y: auto; /* Scorrimento verticale */
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centra verticalmente */
-            align-items: center; /* Centra orizzontalmente */
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
         }
 
         h1 {
-            color: #0F0; /* Colore per i titoli */
-            text-shadow: 0px 0px 10px #00FF00; /* Effetto di bagliore */
-            position: relative; /* Necessario per posizionare il titolo sopra il canvas */
-            z-index: 1; /* Assicura che il titolo sia sopra al canvas */
+            font-size: 36px;
+            color: #0F0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0px 0px 10px #00FF00;
         }
 
-        #matrixCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: black;
-            z-index: 0; /* Lo sfondo deve essere dietro al contenuto */
+        nav {
+            margin-top: 20px;
+        }
+
+        nav a {
+            color: #00FF00;
+            font-size: 18px;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        nav a:hover {
+            color: #66ff66;
         }
 
         .button {
-            background-color: #006400; /* Verde scuro per i pulsanti */
+            margin-top: 20px;
+            background-color: #006400;
             color: white;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
             font-size: 16px;
-            margin-top: 20px;
-            z-index: 1; /* Pulsante sopra al canvas */
         }
 
         .button:hover {
-            background-color: #228B22; /* Colore verde chiaro al passaggio del mouse */
+            background-color: #228B22;
         }
     </style>
 </head>
 <body>
-    <canvas id="matrixCanvas"></canvas>
-    <h1>Le Nostre Guide</h1>
-    
-    <!-- Elenco delle guide -->
-    <ul style="color: #0F0; list-style-type: none; z-index: 1;">
-        <li>Introduzione alla Sicurezza Informatica</li>
-        <li>Come Proteggere le tue Password</li>
-        <li>Sicurezza nei Social Media</li>
-        <li>Utilizzo di VPN e Proxy</li>
-    </ul>
+    <h1>Guide alla Cybersecurity</h1>
+    <nav>
+        <a href="guida_sicurezza_online.html">Guida alla Sicurezza Online</a>
+        <a href="proteggere_privacy_social_media.html">Proteggere la Privacy nei Social Media</a>
+        <a href="utilizzo_sicuro_password.html">Utilizzo Sicuro delle Password</a>
+    </nav>
 
     <button class="button" onclick="window.location.href='index.html'">Torna alla Home</button>
-
-    <script>
-        const canvas = document.getElementById('matrixCanvas');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
-
-        const drops = Array.from({ length: columns }, () => 1);
-
-        function drawMatrix() {
-            ctx.fillStyle = "rgba(0, 0, 0, 0.1)"; // Sfondo con maggiore opacità
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = "#0F0"; // Verde per le lettere a cascata
-            ctx.font = fontSize + "px monospace"; // Font monospace
-
-            drops.forEach((y, i) => {
-                const text = letters[Math.floor(Math.random() * letters.length)];
-                const x = i * fontSize;
-
-                ctx.fillText(text, x, y * fontSize);
-
-                if (y * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-
-                drops[i]++;
-            });
-        }
-
-        setInterval(drawMatrix, 50);
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-    </script>
 </body>
 </html>
