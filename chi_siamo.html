@@ -3,40 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi Siamo</title>
+    <title>Chi Siamo - Cybersecurity</title>
+    <link rel="icon" href="https://github.com/cyberprivacy-cyber/cybersecurity/blob/main/logo_sito.png" type="image/png">
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Courier New', monospace; /* Font in stile Matrix */
+            font-family: 'Courier New', monospace;
             background-color: black;
-            color: #00FF00; /* Testo verde Matrix */
+            color: #00FF00;
             overflow: hidden;
             height: 100vh;
             display: flex;
-            flex-direction: column; /* Impaginazione verticale */
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             text-align: center;
+        }
+
+        nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        nav a {
+            color: #00FF00;
+            text-decoration: none;
+            margin: 10px;
         }
 
         h1 {
             font-size: 36px;
-            color: #0F0; /* Titolo verde brillante in stile Matrix */
-            text-transform: uppercase;
-            letter-spacing: 2px;
             text-shadow: 0px 0px 10px #00FF00;
-        }
-
-        p {
-            font-size: 20px;
-            color: #0F0; /* Colore del testo */
-            width: 80%;
             margin-bottom: 20px;
         }
 
+        p {
+            font-size: 18px;
+            margin: 20px;
+        }
+
         .button {
-            background-color: #006400; /* Verde scuro per i pulsanti */
+            background-color: #006400;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -46,7 +55,7 @@
         }
 
         .button:hover {
-            background-color: #228B22; /* Verde chiaro al passaggio del mouse */
+            background-color: #228B22;
         }
 
         #matrixCanvas {
@@ -55,29 +64,19 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: black;
             z-index: -1;
-        }
-
-        .button-container {
-            position: absolute;
-            bottom: 20px;
-            display: flex;
-            justify-content: center;
-            width: 100%;
         }
     </style>
 </head>
 <body>
     <canvas id="matrixCanvas"></canvas>
     <h1>Chi Siamo</h1>
-    <p>Benvenuti nella nostra comunità di appassionati di cybersecurity! Siamo un gruppo di esperti e amanti della tecnologia, uniti da un obiettivo comune: aiutare le persone a navigare nel mondo digitale in modo sicuro e protetto. <br><br>
-    In un'epoca in cui le minacce informatiche sono sempre più diffuse, crediamo fermamente che la sicurezza online debba essere accessibile a tutti. La nostra missione è semplice: educare, informare e fornire strumenti pratici che permettano a chiunque di proteggere le proprie informazioni e la propria privacy. <br><br>
-    Unitevi a noi in questa avventura per rendere internet un posto migliore e più sicuro. La vostra sicurezza è la nostra priorità!</p>
+    <p>Benvenuti nella nostra comunità di appassionati di cybersecurity! Siamo un gruppo di esperti e amanti della tecnologia, uniti da un obiettivo comune: aiutare le persone a navigare nel mondo digitale in modo sicuro e protetto.</p>
+    <p>In un'epoca in cui le minacce informatiche sono sempre più diffuse, crediamo fermamente che la sicurezza online debba essere accessibile a tutti. La nostra missione è semplice: educare, informare e fornire strumenti pratici che permettano a chiunque di proteggere le proprie informazioni e la propria privacy.</p>
+    <p>Immaginate di poter navigare senza preoccupazioni, sapendo che le vostre informazioni sono al sicuro. Questo è il mondo che vogliamo creare. Ciò che ci distingue è il nostro approccio amichevole e coinvolgente: non siamo solo esperti, siamo anche vostri compagni di viaggio nel mondo della cybersecurity. Insieme possiamo affrontare le sfide e costruire un futuro più sicuro per tutti.</p>
+    <p>Unitevi a noi in questa avventura per rendere internet un posto migliore e più sicuro. La vostra sicurezza è la nostra priorità!</p>
 
-    <div class="button-container">
-        <button class="button" onclick="window.location.href='index.html'">Torna alla Home</button>
-    </div>
+    <button class="button" onclick="window.location.href='index.html'">Torna alla Home</button>
 
     <script>
         const canvas = document.getElementById('matrixCanvas');
