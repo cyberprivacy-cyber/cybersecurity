@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guide alla Cybersecurity</title>
+    <title>Guide</title>
+    <link rel="icon" href="logo_sito.png" type="image/png">
     <style>
         body {
             margin: 0;
@@ -11,60 +12,103 @@
             font-family: 'Courier New', monospace;
             background-color: black;
             color: #00FF00;
-            overflow-y: auto; /* Scorrimento verticale */
+            overflow-y: auto;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            height: 100vh;
+        }
+
+        .guide-list {
             text-align: center;
-        }
-
-        h1 {
-            font-size: 36px;
-            color: #0F0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0px 0px 10px #00FF00;
-        }
-
-        nav {
+            position: relative;
+            z-index: 1;
             margin-top: 20px;
-        }
-
-        nav a {
-            color: #00FF00;
-            font-size: 18px;
-            text-decoration: none;
-            margin: 10px;
-        }
-
-        nav a:hover {
-            color: #66ff66;
         }
 
         .button {
-            margin-top: 20px;
             background-color: #006400;
             color: white;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
             font-size: 16px;
+            margin-top: 20px;
+            position: fixed; /* Fisso per rimanere visibile */
+            bottom: 20px;    /* Spazio dal basso */
+            left: 50%;       /* Centrato orizzontalmente */
+            transform: translateX(-50%); /* Centro esatto */
+            z-index: 2;     /* Assicura che sia sopra al canvas */
         }
 
         .button:hover {
             background-color: #228B22;
         }
+
+        #matrixCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 0;
+        }
     </style>
 </head>
 <body>
-    <h1>Guide alla Cybersecurity</h1>
-    <nav>
-        <a href="guida_sicurezza_online.html">Guida alla Sicurezza Online</a>
-        <a href="proteggere_privacy_social_media.html">Proteggere la Privacy nei Social Media</a>
-        <a href="utilizzo_sicuro_password.html">Utilizzo Sicuro delle Password</a>
-    </nav>
+    <canvas id="matrixCanvas"></canvas>
+    <div class="guide-list">
+        <h2>Le Nostre Guide</h2>
+        <ul>
+            <li><a href="guida1.html">Come proteggere i tuoi dati online</a></li>
+            <li><a href="guida2.html">Trucchi per navigare in modo sicuro</a></li>
+            <li><a href="guida3.html">Le migliori pratiche per la privacy</a></li>
+        </ul>
+    </div>
 
-    <button class="button" onclick="window.location.href='index.html'">Torna alla Home</button>
+    <button class="button" onclick="window.location.href='index.html';">Torna alla Home</button>
+
+    <script>
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+
+        const drops = Array.from({ length: columns }, () => 1);
+
+        function drawMatrix() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#0F0";
+            ctx.font = fontSize + "px monospace";
+
+            drops.forEach((y, i) => {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                const x = i * fontSize;
+
+                ctx.fillText(text, x, y * fontSize);
+
+                if (y * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+            });
+        }
+
+        setInterval(drawMatrix, 50);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>
