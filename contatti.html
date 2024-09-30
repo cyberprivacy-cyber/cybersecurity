@@ -22,6 +22,8 @@
 
         .contact-info {
             text-align: center;
+            position: relative; /* Aggiunto per il posizionamento */
+            z-index: 1; /* Assicurati che il testo sia sopra il canvas */
         }
 
         .button {
@@ -46,7 +48,7 @@
             width: 100%;
             height: 100%;
             background-color: black;
-            z-index: -1;
+            z-index: 0; /* Assicurati che il canvas sia dietro al contenuto */
         }
 
         a {
@@ -82,4 +84,4 @@
 
         function drawMatrix() {
             ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
-            ctx.fillRect(0, 0, canvas.width, canvas
+            ctx.fillRect(0, 0, 
