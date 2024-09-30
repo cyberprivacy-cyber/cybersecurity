@@ -3,29 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi Siamo - Cybersecurity</title>
+    <title>Chi siamo</title>
+    <link rel="icon" href="logo_sito.png" type="image/png">
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Courier New', monospace; /* Font tipo Matrix */
+            font-family: 'Courier New', monospace;
             background-color: black;
-            color: #00FF00; /* Colore testo verde Matrix */
+            color: #00FF00;
+            overflow-y: auto;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centra verticalmente */
-            align-items: center; /* Centra orizzontalmente */
-            text-align: center;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
-            position: relative;
-            overflow: hidden;
         }
 
         h1, p {
-            color: #0F0; /* Colore per i titoli e testo */
-            text-shadow: 0px 0px 10px #00FF00; /* Effetto di bagliore */
-            position: relative; /* Necessario per posizionare il testo sopra il canvas */
-            z-index: 1; /* Assicura che il testo sia sopra al canvas */
+            text-align: center;
+            max-width: 800px;
+            margin: 20px;
+        }
+
+        .button {
+            background-color: #006400;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .button:hover {
+            background-color: #228B22;
         }
 
         #matrixCanvas {
@@ -35,34 +48,16 @@
             width: 100%;
             height: 100%;
             background-color: black;
-            z-index: 0; /* Lo sfondo deve essere dietro al contenuto */
-        }
-
-        .button {
-            background-color: #006400; /* Verde scuro per i pulsanti */
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 20px;
-            z-index: 1; /* Pulsante sopra al canvas */
-        }
-
-        .button:hover {
-            background-color: #228B22; /* Colore verde chiaro al passaggio del mouse */
+            z-index: -1;
         }
     </style>
 </head>
 <body>
     <canvas id="matrixCanvas"></canvas>
     <h1>Chi Siamo</h1>
-    <p>Benvenuti nella nostra comunità di appassionati di cybersecurity! Siamo un gruppo di esperti e amanti della tecnologia, uniti da un obiettivo comune: aiutare le persone a navigare nel mondo digitale in modo sicuro e protetto.</p>
-    <p>In un'epoca in cui le minacce informatiche sono sempre più diffuse, crediamo fermamente che la sicurezza online debba essere accessibile a tutti. La nostra missione è semplice: educare, informare e fornire strumenti pratici che permettano a chiunque di proteggere le proprie informazioni e la propria privacy.</p>
-    <p>Immaginate di poter navigare senza preoccupazioni, sapendo che le vostre informazioni sono al sicuro. Questo è il mondo che vogliamo creare. Ciò che ci distingue è il nostro approccio amichevole e coinvolgente: non siamo solo esperti, siamo anche vostri compagni di viaggio nel mondo della cybersecurity. Insieme possiamo affrontare le sfide e costruire un futuro più sicuro per tutti.</p>
-    <p>Unitevi a noi in questa avventura per rendere internet un posto migliore e più sicuro. La vostra sicurezza è la nostra priorità!</p>
+    <p>Benvenuti nella nostra comunità di appassionati di cybersecurity! Siamo un gruppo di esperti e amanti della tecnologia...</p>
 
-    <button class="button" onclick="window.location.href='index.html'">Torna alla Home</button>
+    <button class="button" onclick="window.location.href='index.html';">Torna alla Home</button>
 
     <script>
         const canvas = document.getElementById('matrixCanvas');
@@ -78,11 +73,11 @@
         const drops = Array.from({ length: columns }, () => 1);
 
         function drawMatrix() {
-            ctx.fillStyle = "rgba(0, 0, 0, 0.1)"; // Sfondo con maggiore opacità
+            ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = "#0F0"; // Verde per le lettere a cascata
-            ctx.font = fontSize + "px monospace"; // Font monospace
+            ctx.fillStyle = "#0F0";
+            ctx.font = fontSize + "px monospace";
 
             drops.forEach((y, i) => {
                 const text = letters[Math.floor(Math.random() * letters.length)];
