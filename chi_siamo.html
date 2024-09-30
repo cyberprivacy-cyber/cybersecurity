@@ -4,41 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi Siamo</title>
-    <link rel="icon" href="logo_sito.png" type="image/png">
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Courier New', monospace;
+            font-family: 'Courier New', monospace; /* Font in stile Matrix */
             background-color: black;
-            color: #00FF00;
-            overflow-y: auto;
+            color: #00FF00; /* Testo verde Matrix */
+            overflow: hidden;
+            height: 100vh;
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Impaginazione verticale */
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            text-align: center;
         }
 
-        h1, p {
-            text-align: center;
-            max-width: 800px;
-            margin: 20px;
+        h1 {
+            font-size: 36px;
+            color: #0F0; /* Titolo verde brillante in stile Matrix */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0px 0px 10px #00FF00;
+        }
+
+        p {
+            font-size: 20px;
+            color: #0F0; /* Colore del testo */
+            width: 80%;
+            margin-bottom: 20px;
         }
 
         .button {
-            background-color: #006400;
+            background-color: #006400; /* Verde scuro per i pulsanti */
             color: white;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
             font-size: 16px;
             margin-top: 20px;
-            text-align: center;
         }
 
         .button:hover {
-            background-color: #228B22;
+            background-color: #228B22; /* Verde chiaro al passaggio del mouse */
         }
 
         #matrixCanvas {
@@ -50,14 +58,26 @@
             background-color: black;
             z-index: -1;
         }
+
+        .button-container {
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
     <canvas id="matrixCanvas"></canvas>
     <h1>Chi Siamo</h1>
-    <p>Benvenuti nella nostra comunità di appassionati di cybersecurity! Siamo un gruppo di esperti e amanti della tecnologia...</p>
+    <p>Benvenuti nella nostra comunità di appassionati di cybersecurity! Siamo un gruppo di esperti e amanti della tecnologia, uniti da un obiettivo comune: aiutare le persone a navigare nel mondo digitale in modo sicuro e protetto. <br><br>
+    In un'epoca in cui le minacce informatiche sono sempre più diffuse, crediamo fermamente che la sicurezza online debba essere accessibile a tutti. La nostra missione è semplice: educare, informare e fornire strumenti pratici che permettano a chiunque di proteggere le proprie informazioni e la propria privacy. <br><br>
+    Unitevi a noi in questa avventura per rendere internet un posto migliore e più sicuro. La vostra sicurezza è la nostra priorità!</p>
 
-    <button class="button" onclick="window.location.href='index.html';">Torna alla Home</button>
+    <div class="button-container">
+        <button class="button" onclick="window.location.href='index.html'">Torna alla Home</button>
+    </div>
 
     <script>
         const canvas = document.getElementById('matrixCanvas');
